@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
   def index
     @book = Book.new
-    @books = Book.all
+    @books = Book.page(params[:page])
     @user = current_user
   end
 
